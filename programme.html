@@ -4,27 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Journées d'été ADES</title>
+    <title>Programme</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/ico" href="images/logo-ades1.ico">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_arrow_down" />
     <script src="https://kit.fontawesome.com/01017a31ec.js" crossorigin="anonymous"></script>
-    <script src="scripts/data.js" defer></script>
-    <script src="scripts/script.js" defer></script>
 </head>
 
 <body>
     <header>
         <div class="logo-div">
-            <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JOURNÉES D'ÉTÉ<br>DES ÉCOLOGISTES ADES</a>
+            <a href="index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JOURNÉES D'ÉTÉ<br>DES ÉCOLOGISTES ADES</a>
         </div>
 
         <nav class="nav-links">
             <ul>
                 <li><a href="presentation.html" class="unique">Présentation</a></li>
                 <li>
-                    <a href="#">Programme</a>
+                    <a href="programme.html">Programme</a>
                     <ul class="submenu">
                         <li><a href="programme.html?id=jour1">Jour 1</a></li>
                         <li><a href="programme.html?id=jour2">Jour 2</a></li>
@@ -44,64 +42,16 @@
             </ul>
         </nav>
 
-        <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
-
         <div class="bouttons">
             <button class="btn btn1">ADHÉRER</button>
             <button class="btn">DONNER</button>
         </div>
     </header>
+    <main>
+        <div class="programme-page" id="programme-page"></div>
+    </main>
 
-    <section class="home-section">
-        <!-- Partie gauche -->
-        <div class="home-left">
-            <h1>Bienvenue sur le site des JD de l'ADES !</h1>
-            <p>Elles se sont déroulées du 21 au 23 août 2025 à Strasbourg, capitale européenne... et vitrine de
-                l’écologie en actes !</p>
-            <div class="slogan">
-                <span>Travail</span> &nbsp;  <span>Équité</span> &nbsp; <span>Transparence</span>
-            </div>
-        </div>
-
-        <!-- Partie droite -->
-        <div class="home-right">
-            <img src="images/JDE-ades.jpeg" alt="JDE">
-            <div class="overlay2"></div>
-        </div>
-    </section>
-
-
-
-    <!-- Section Actualités -->
-    <section class="actus-section">
-        <h2>Actualités</h2>
-        <div class="actus-container" id="actus-container">
-            <!-- Les actus vont être générées ici -->
-        </div>
-    </section>
-
-    <section class="info">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>RESTEZ INFORMÉ·ES,<br> SUIVEZ-NOUS !</h1>
-            <div class="buttons">
-                <a href="https://www.facebook.com/p/Alliance-Des-Ecologistes-du-S%C3%A9n%C3%A9gal-100068978242811/"
-                    target="_blank" class="btn">FACEBOOK</a>
-                <a href="https://twitter.com" target="_blank" class="btn">X</a>
-                <a href="https://www.ades.sn/" target="_blank" class="btn">ADES</a>
-            </div>
-            <!-- Formulaire Newsletter Brevo -->
-            <div class="newsletter">
-                <form action="https://YOUR_ACCOUNT.sibforms.com/serve/MUIE...XYZ" method="POST" target="_blank">
-                    <input type="text" name="FIRSTNAME" placeholder="Votre prénom" required>
-                    <input type="email" name="EMAIL" placeholder="Entrez votre email" required>
-                    <button type="submit">S'abonner</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+      <footer>
         <div>
             <h3>À propos</h3>
             <p>
@@ -140,6 +90,26 @@
         </div>
     </footer>
 
+    <script src="scripts/data.js"></script>
+    <script>
+        // Récupérer l’ID depuis l’URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        // Chercher l’élément programme
+        const p = programme.find(e => e.id === id);
+        const container = document.getElementById("programme-page");
+
+        if (p) {
+            container.innerHTML = `
+        <h1>${p.titre}</h1>
+        ${p.contenu}
+        <a href="index.html">← Retour</a>
+      `;
+        } else {
+            container.innerHTML = "<p>Programme introuvable.</p>";
+        }
+    </script>
 </body>
 
 </html>

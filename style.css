@@ -22,6 +22,7 @@ body {
 
 section {
     padding: 5rem 8%;
+    margin: auto;
 }
 
 
@@ -40,6 +41,7 @@ header {
     background-color: white;
     padding: 12px 15px 20px 15px;
     width: 100%;
+    cursor: pointer;
 }
 
 
@@ -54,12 +56,14 @@ header {
 
 
 .logo-div a {
-    line-height: 1.2;
-    color: #2D734B;
-    font-size: 2rem;
-    font-weight: 900;
+    display: inline-block;
     transition: 0.3s;
-    font-family: serif;
+}
+
+.logo-div a img {
+    height: 65px;      /* ajuste la hauteur selon ton besoin */
+    width: 22rem;       /* garde les proportions */
+    display: block;    /* évite les petits espaces sous l’image */
 }
 
 .logo-div a:hover,
@@ -91,6 +95,30 @@ header {
     font-weight: 500;
     transition: 0.3s;
 }
+
+.nav-links ul li .prog {
+    display: flex;
+    /* Active flexbox */
+    align-items: center;
+    /* Centre verticalement le texte et l’icône */
+    text-decoration: none;
+    color: #2D734B;
+    font-size: 16px;
+}
+
+.nav-links ul li .inf-pra {
+    display: flex;
+    /* Active flexbox */
+    align-items: center;
+    /* Centre verticalement le texte et l’icône */
+    text-decoration: none;
+    color: #2D734B;
+    font-size: 16px;
+}
+
+/* .nav-links ul li .unique {
+    margin: 10px;
+} */
 
 .nav-links ul li .unique:hover {
     background-color: #2D734B;
@@ -159,6 +187,7 @@ header {
     background-color: rgb(243, 42, 42);
     border: 1px solid rgb(243, 42, 42);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .bouttons .btn:hover {
@@ -308,7 +337,7 @@ header {
 }
 
 .home-left h1 {
-    font-size: 3.2rem;
+    font-size: 5.5rem;
     margin-bottom: 30px;
     font-weight: 900;
 }
@@ -327,6 +356,9 @@ header {
     letter-spacing: 2px;
     color: white;
     /* noir clair */
+    background-color: #fdfafa;
+    width: 40rem;
+    border-radius: 2px;
 }
 
 .slogan span {
@@ -337,19 +369,19 @@ header {
 
 .slogan span:nth-child(1) {
     animation-delay: 0.5s;
-    color: #00C064;
+    color: #021F59;
     /* vert clair */
 }
 
 .slogan span:nth-child(2) {
     animation-delay: 1.5s;
-    color: yellow;
+    color: #00C064;
     /* bleu */
 }
 
 .slogan span:nth-child(3) {
     animation-delay: 2.5s;
-    color: red;
+    color: #F2B807;
     /* orange */
 }
 
